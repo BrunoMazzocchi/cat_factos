@@ -1,3 +1,4 @@
+import 'package:catfact/features/facts/data/models/cat_fact_model.dart';
 import 'package:equatable/equatable.dart';
 
 class CatFactEntity extends Equatable {
@@ -11,4 +12,11 @@ class CatFactEntity extends Equatable {
 
   @override
   List<Object?> get props => [fact, length];
+
+  factory CatFactEntity.fromModel(CatFactModel model) {
+    return CatFactEntity(
+      length: model.length,
+      fact: model.fact,
+    );
+  }
 }
