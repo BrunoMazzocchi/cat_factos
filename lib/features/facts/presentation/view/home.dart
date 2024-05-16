@@ -42,7 +42,16 @@ class HomeView extends StatelessWidget {
                 horizontal: 10,
                 vertical: 50,
               ),
-              child: Text(fact.fact),
+              child: Column(
+                children: [
+                  Text(fact.fact),
+                  const  SizedBox(height: 10,),
+                  ElevatedButton(
+                      onPressed: () => context.read<FactBloc>()..add(FactGet()),
+                      child: const Text("Get facto"),
+                  ),
+                ],
+              ),
             );
           } else {
             return const Center(
